@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import './variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: radial-gradient(
+    circle at 15% 50%,
+    rgba(99, 102, 241, 0.1),
+    transparent 25%
+  ),
+  radial-gradient(
+    circle at 85% 30%,
+    rgba(16, 185, 129, 0.05),
+    transparent 25%
+  );
+  background-attachment: fixed;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-family);
+  border: none;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  background: transparent;
+  color: var(--text-primary);
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+input, textarea {
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  
+  &:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+  }
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+}
+
+// Utility for glass panels
+.glass-panel {
+  background: var(--surface-primary);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}

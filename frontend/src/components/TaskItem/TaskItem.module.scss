@@ -1,0 +1,93 @@
+.itemContainer {
+  display: flex;
+  align-items: flex-start;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  transition: all var(--transition-normal);
+
+  &:hover {
+    background: rgba(30, 41, 59, 0.85);
+  }
+
+  &.completed {
+    opacity: 0.7;
+    
+    .title {
+      text-decoration: line-through;
+      color: var(--text-secondary);
+    }
+  }
+}
+
+.statusSection {
+  margin-right: 1rem;
+  padding-top: 0.2rem;
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  &:hover:not(:disabled) {
+    border-color: var(--success-color);
+  }
+
+  &.checked {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+  }
+}
+
+.contentSection {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  word-break: break-word;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  word-break: break-word;
+}
+
+.editMode {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  
+  .editInput {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+.actionSection {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+.actionBtn {
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
