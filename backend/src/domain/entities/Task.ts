@@ -10,10 +10,10 @@ export class Task {
     title: string,
     description: string,
     completed: boolean = false,
-    createdAt: Date = new Date()
+    createdAt: Date = new Date(),
   ) {
-    if (!title || title.trim() === '') {
-      throw new Error('Task title cannot be empty.');
+    if (!title || title.trim() === "") {
+      throw new Error("Task title cannot be empty.");
     }
     this._id = id;
     this._title = title;
@@ -47,8 +47,8 @@ export class Task {
   }
 
   updateDetails(title: string, description: string): void {
-    if (!title || title.trim() === '') {
-      throw new Error('Task title cannot be empty.');
+    if (!title || title.trim() === "") {
+      throw new Error("Task title cannot be empty.");
     }
     this._title = title;
     this._description = description;
@@ -63,12 +63,4 @@ export class Task {
       createdAt: this.createdAt,
     };
   }
-}
-
-export interface ITaskRepository {
-  create(task: Task): Promise<void>;
-  findById(id: string): Promise<Task | null>;
-  findAll(): Promise<Task[]>;
-  update(task: Task): Promise<void>;
-  delete(id: string): Promise<void>;
 }
