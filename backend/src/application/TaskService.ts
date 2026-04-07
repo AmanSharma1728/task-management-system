@@ -1,4 +1,5 @@
-import { ITaskRepository, Task } from '../domain/Task';
+import { Task } from "../domain/entities/Task";
+import { ITaskRepository } from "../domain/repositories/ITaskRepository";
 
 export interface TaskStats {
   total: number;
@@ -9,7 +10,11 @@ export interface TaskStats {
 export class TaskService {
   constructor(private readonly taskRepository: ITaskRepository) {}
 
-  async createTask(id: string, title: string, description: string): Promise<Task> {
+  async createTask(
+    id: string,
+    title: string,
+    description: string,
+  ): Promise<Task> {
     const task = new Task(id, title, description);
     await this.taskRepository.create(task);
     return task;
@@ -27,7 +32,11 @@ export class TaskService {
     return task;
   }
 
-  async updateTask(id: string, title: string, description: string): Promise<Task> {
+  async updateTask(
+    id: string,
+    title: string,
+    description: string,
+  ): Promise<Task> {
     const task = await this.getTask(id);
     task.updateDetails(title, description);
     await this.taskRepository.update(task);
@@ -48,7 +57,7 @@ export class TaskService {
   async getStats(): Promise<TaskStats> {
     const tasks = await this.taskRepository.findAll();
     const total = tasks.length;
-    const completed = tasks.filter(t => t.completed).length;
+    const completed = tasks.filter((t) => t.completed).length;
     const pending = total - completed;
 
     return { total, completed, pending };
