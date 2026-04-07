@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import { InMemoryTaskRepository } from "./infrastructure/database/in_memory/InMemoryTaskRepository";
 import { TaskService } from "./application/TaskService";
-import { defineRoutes } from "./presentation/routes";
+import { defineRoutes } from "./presentation/routes/routes";
 import { errorHandler } from "./presentation/middlewares/errorHandler";
 import { runSeeder } from "./seeder";
 
